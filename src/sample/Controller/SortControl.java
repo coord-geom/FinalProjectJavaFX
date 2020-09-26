@@ -9,7 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
@@ -53,6 +56,8 @@ public class SortControl implements Initializable {
     private ArrayList<Rectangle> merges2 = new ArrayList<>();
     private ArrayList<Rectangle> counting = new ArrayList<>();
     private ArrayList<Rectangle> counting2 = new ArrayList<>();
+
+    private ArrayList<Rectangle> mergeCopy;
 
 
     int[] bubs = new int[15];
@@ -105,7 +110,6 @@ public class SortControl implements Initializable {
         mergeSlider.valueProperty().addListener((observableValue, number, t1) -> mergeSpeed = (mergeSlider.getMax()+mergeSlider.getMin() - t1.doubleValue()) * 1000 + 300);
         countSlider.valueProperty().addListener((observableValue, number, t1) -> countSpeed = (countSlider.getMax()+countSlider.getMin() - t1.doubleValue()) * 1000 + 300);
     }
-
     public void returnBack(){
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/algoPage.fxml"));
@@ -435,11 +439,138 @@ public class SortControl implements Initializable {
         insertionPane.getChildren().addAll(insertions);
     }
 
+    public void mergesort(int[] a,int n,int[] lst){
+        if(n < 2) return;
+        int mid = n/2;
+        int[] l = new int[mid];
+        int[] r = new int[n - mid];
+        int[] l_lst = new int[mid];
+        int[] r_lst = new int[n-mid];
+        System.arraycopy(lst, 0, l_lst, 0, mid);
+        System.arraycopy(lst, mid, r_lst, 0, n - mid);
+        System.arraycopy(a, 0, l, 0, mid);
+        System.arraycopy(a, mid, r, 0, n - mid);
+
+        mergesort(l,mid,l_lst);
+        mergesort(r,n-mid,r_lst);
+
+        mergeArr(a,l,r,mid,n-mid,l_lst,r_lst,lst);
+    }
+    public void mergeArr(int[] a,int[] l,int[] r,int left,int right,int[] l_lst,int[] r_lst,int[] lst){
+        int i=0,j=0,k=0;
+        double X = 1023456789;
+        double xx = 1023456789;
+        for(int h=0;h<lst.length;++h){
+            Rectangle rect = mergeCopy.get(lst[h]);
+            X = Math.min(X,rect.getX()+rect.getWidth()/2);
+            xx = Math.min(xx,rect.getX());
+        }
+        while(i<left && j<right){
+            if(l[i] <= r[j]) {
+                Rectangle rect = mergeCopy.get(l_lst[i]);
+                int finalK = k;
+                double finalX1 = X;
+                Platform.runLater(() -> new ParallelTransition(
+                        new FillTransition(Duration.millis(mergeSpeed),rect,Color.LIGHTSKYBLUE,Color.RED),
+                        new PathTransition(Duration.millis(mergeSpeed),new Path(
+                                new MoveTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2),
+                                new LineTo(finalX1 +45* finalK,rect.getY()+rect.getHeight()/2+200)
+                        ),rect)
+                ).play());
+                double finalXx = xx;
+                Platform.runLater(() -> {
+                    rect.setX(finalXx +45*finalK);
+                    rect.setY(rect.getY()+200);
+                });
+                try{ Thread.sleep((long) mergeSpeed); }
+                catch(InterruptedException e){ e.printStackTrace(); }
+                a[k] = l[i];
+                lst[k++] = l_lst[i++];
+            }
+            else{
+                Rectangle rect = mergeCopy.get(r_lst[j]);
+                int finalK = k;
+                double finalX2 = X;
+                Platform.runLater(() -> new ParallelTransition(
+                        new FillTransition(Duration.millis(mergeSpeed),rect,Color.LIGHTSKYBLUE,Color.RED),
+                        new PathTransition(Duration.millis(mergeSpeed),new Path(
+                                new MoveTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2),
+                                new LineTo(finalX2 +45* finalK,rect.getY()+rect.getHeight()/2+200)
+                        ),rect)
+                ).play());
+                double finalXx1 = xx;
+                Platform.runLater(() -> {
+                    rect.setX(finalXx1 +45*finalK);
+                    rect.setY(rect.getY()+200);
+                });
+                try{ Thread.sleep((long) mergeSpeed); }
+                catch(InterruptedException e){ e.printStackTrace(); }
+                a[k] = r[j];
+                lst[k++] = r_lst[j++];
+            }
+        }
+        while(i<left){
+            Rectangle rect = mergeCopy.get(l_lst[i]);
+            int finalK = k;
+            double finalX3 = X;
+            Platform.runLater(() -> new ParallelTransition(
+                    new FillTransition(Duration.millis(mergeSpeed),rect,Color.LIGHTSKYBLUE,Color.RED),
+                    new PathTransition(Duration.millis(mergeSpeed),new Path(
+                            new MoveTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2),
+                            new LineTo(finalX3 +45*finalK,rect.getY()+rect.getHeight()/2+200)
+                    ),rect)
+            ).play());
+            double finalXx2 = xx;
+            Platform.runLater(() -> {
+                rect.setX(finalXx2 +45*finalK);
+                rect.setY(rect.getY()+200);
+            });
+            try{ Thread.sleep((long) mergeSpeed); }
+            catch(InterruptedException e){ e.printStackTrace(); }
+            lst[k] = l_lst[i];
+            a[k++] = l[i++];
+        }
+        while(j<right){
+            Rectangle rect = mergeCopy.get(r_lst[j]);
+            int finalK = k;
+            double finalX4 = X;
+            Platform.runLater(() -> new ParallelTransition(
+                    new FillTransition(Duration.millis(mergeSpeed),rect,Color.LIGHTSKYBLUE,Color.RED),
+                    new PathTransition(Duration.millis(mergeSpeed),new Path(
+                            new MoveTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2),
+                            new LineTo(finalX4 +45*finalK,rect.getY()+rect.getHeight()/2+200)
+                    ),rect)
+            ).play());
+            double finalXx3 = xx;
+            Platform.runLater(() -> {
+                rect.setX(finalXx3 +45*finalK);
+                rect.setY(rect.getY()+200);
+            });
+            try{ Thread.sleep((long) mergeSpeed); }
+            catch(InterruptedException e){ e.printStackTrace(); }
+            lst[k] = r_lst[j];
+            a[k++] = r[j++];
+        }
+        for(int x=0;x<lst.length;++x){
+            Rectangle rect = mergeCopy.get(lst[x]);
+            int finalX = x;
+            Platform.runLater(() -> new ParallelTransition(
+                    new FillTransition(Duration.millis(mergeSpeed),rect,Color.RED,Color.LIGHTSKYBLUE),
+                    new PathTransition(Duration.millis(mergeSpeed),new Path(
+                            new MoveTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2),
+                            new LineTo(rect.getX()+rect.getWidth()/2,rect.getY()+rect.getHeight()/2-200)
+                    ),rect)
+            ).play());
+            double finalXx4 = xx;
+            Platform.runLater(() -> rect.setY(rect.getY()-200));
+            try{ Thread.sleep((long) mergeSpeed); }
+            catch(InterruptedException e){ e.printStackTrace(); }
+        }
+    }
     public void mergeSort(){
         new Thread(() -> {
-
             // reset the rectangles
-            ArrayList<Rectangle> mergeCopy = new ArrayList<>(merges);
+            mergeCopy = new ArrayList<>(merges);
             if(!merges2.isEmpty()){
                 Platform.runLater(() -> mergePane.getChildren().removeAll(merges2));
                 if(!mergePane.getChildren().containsAll(mergeCopy))
@@ -452,6 +583,8 @@ public class SortControl implements Initializable {
                 merges.add(r);
             }
             int[] arrCopy = new int[merge.length];
+            int[] num = new int[merge.length];
+            for(int i=0;i<num.length;++i) num[i] = i;
             System.arraycopy(merge, 0, arrCopy, 0, merge.length);
 
             // animation
@@ -460,7 +593,7 @@ public class SortControl implements Initializable {
                 mergeRandomButton.setDisable(true);
                 mergeCustomButton.setDisable(true);
             });
-            // something
+            mergesort(arrCopy,arrCopy.length,num);
             merges2 = mergeCopy;
             Platform.runLater(() -> {
                 mergeStartButton.setDisable(false);
@@ -535,7 +668,42 @@ public class SortControl implements Initializable {
         mergePane.getChildren().addAll(merges);
     }
 
-    public void countingSort(){}
+    public void countingSort(){
+        new Thread(() -> {
+            // reset the rectangles
+            ArrayList<Rectangle> countCopy = new ArrayList<>(counting);
+            if(!counting2.isEmpty()){
+                Platform.runLater(() -> mergePane.getChildren().removeAll(counting2));
+                if(!mergePane.getChildren().containsAll(mergeCopy))
+                    Platform.runLater(() -> mergePane.getChildren().addAll(mergeCopy));
+            }
+            counting = new ArrayList<>();
+            for (Rectangle r : mergeCopy) {
+                r = new Rectangle(r.getX(), r.getY(), r.getWidth(), r.getHeight());
+                r.setFill(Color.LIGHTSKYBLUE);
+                counting.add(r);
+            }
+            int[] arrCopy = new int[merge.length];
+            int[] num = new int[merge.length];
+            for(int i=0;i<num.length;++i) num[i] = i;
+            System.arraycopy(merge, 0, arrCopy, 0, merge.length);
+
+            // animation
+            Platform.runLater(() -> {
+                countStartButton.setDisable(true);
+                countRandomButton.setDisable(true);
+                countCustomButton.setDisable(true);
+            });
+            // code goes here
+            counting2 = mergeCopy;
+            Platform.runLater(() -> {
+                countStartButton.setDisable(false);
+                countStartButton.setText("Restart!");
+                countCustomButton.setDisable(false);
+                countRandomButton.setDisable(false);
+            });
+        }).start();
+    }
     public void countStart(){
         Runnable task = this::countingSort;
         Thread bgThread = new Thread(task);
