@@ -20,8 +20,9 @@ public class AlgoControl{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/sorting.fxml"));
             Stage stage = (Stage) sortButton.getScene().getWindow();
             stage.setTitle("Sorting");
-            //stage.setMaximized(true);
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,19 +34,9 @@ public class AlgoControl{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphs.fxml"));
             Stage stage = (Stage) sortButton.getScene().getWindow();
             stage.setTitle("Graph Theory");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void viewDS(){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/dataStruct.fxml"));
-            Stage stage = (Stage) sortButton.getScene().getWindow();
-            stage.setTitle("Data Structures");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +48,9 @@ public class AlgoControl{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/StartPage.fxml"));
             Stage stage = (Stage) sortButton.getScene().getWindow();
             stage.setTitle("Welcome!");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         }catch(IOException e){
             System.out.println(e.getMessage());

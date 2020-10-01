@@ -26,6 +26,8 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import sample.Model.Alerts;
 
+import java.io.IOException;
+
 
 public class Main extends Application {
 
@@ -143,6 +145,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("View/fxmlFiles/Login.fxml"));
         primaryStage.setTitle("Login in ConspicioAlgo");
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("View/materials.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -151,4 +154,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

@@ -19,10 +19,57 @@ public class GraphControl {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/algoPage.fxml"));
             Stage stage = (Stage) tabPane.getScene().getWindow();
             stage.setTitle("Algorithms");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         }catch(IOException e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void loadGraphRep(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphReps.fxml"));
+            Stage stage = (Stage) tabPane.getScene().getWindow();
+            stage.setTitle("Graph Representations");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadGraphTrav(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphTraversal.fxml"));
+            Stage stage = (Stage) tabPane.getScene().getWindow();
+            stage.setTitle("Graph Traversal");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadGraphSPA(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPA.fxml"));
+            Stage stage = (Stage) tabPane.getScene().getWindow();
+            stage.setTitle("Shortest Path Algorithms");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

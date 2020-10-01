@@ -1,6 +1,10 @@
 module FinalProjectJavaFX {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+    requires java.desktop;
+
     opens sample;
     opens sample.Controller;
     opens sample.Model;

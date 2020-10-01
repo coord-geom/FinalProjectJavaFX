@@ -70,7 +70,9 @@ public class CreateAccountControl {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/Login.fxml"));
             Stage stage = (Stage) usernameTF.getScene().getWindow();
             stage.setTitle("Create an account");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

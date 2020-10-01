@@ -28,21 +28,12 @@
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="57.33333333333333" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="117.33333333333334" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="60.33334223429362" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="108.99999109903973" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="96.33335367838541" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="106.33331298828125" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" GridPane.columnIndex="3">
-                                 <graphic>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/return.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <Label text="Graph Theory" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                                  <font>
                                     <Font size="24.0" />
@@ -82,15 +73,6 @@
                               <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" GridPane.columnIndex="3">
-                                 <graphic>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/return.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <Label text="Graph Representations" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                                  <font>
                                     <Font size="24.0" />
@@ -106,6 +88,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphRep" text="See Graph Representations" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>
@@ -130,15 +113,6 @@
                               <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" GridPane.columnIndex="3">
-                                 <graphic>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/return.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <Label text="Graph Traversal" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                                  <font>
                                     <Font size="24.0" />
@@ -154,6 +128,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphTrav" text="See Graph Traversal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>
@@ -178,15 +153,6 @@
                               <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" GridPane.columnIndex="3">
-                                 <graphic>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/return.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
                               <Label text="Shortest Path Algorithms" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                                  <font>
                                     <Font size="24.0" />
@@ -202,54 +168,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Minimum Spanning Trees">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <GridPane prefHeight="370.6666666666667" prefWidth="600.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="28.999991734822594" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="458.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.66668701171875" minWidth="10.0" prefWidth="59.99999999999994" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="57.33333333333333" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="136.33333333333331" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="86.99999999999997" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" GridPane.columnIndex="3">
-                                 <graphic>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/return.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Label text="Minimum Spanning Trees" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label text="tbc" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="tbc" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphSPA" text="See Shortest Path Algorithms" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>
@@ -258,5 +177,14 @@
             </Tab>
         </tabs>
       </TabPane>
+      <Button alignment="BASELINE_CENTER" layoutX="550.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

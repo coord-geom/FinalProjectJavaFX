@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.AlgoControl">
    <children>
-      <Button fx:id="sortButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSort" prefHeight="117.0" prefWidth="149.0" text="Sorting">
+      <Button fx:id="sortButton" contentDisplay="TOP" graphicTextGap="5.0" layoutX="14.0" layoutY="79.0" maxHeight="130.0" minHeight="120.0" mnemonicParsing="false" onAction="#viewSort" prefHeight="130.0" prefWidth="150.0" text="Sorting">
          <graphic>
-            <ImageView fitHeight="79.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="77.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sort.png" />
                </image>
@@ -22,31 +22,19 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button contentDisplay="TOP" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#viewGraph" prefHeight="117.0" prefWidth="149.0" text="Graph Theory">
+      <Button contentDisplay="TOP" graphicTextGap="5.0" layoutX="14.0" layoutY="226.0" minHeight="120.0" minWidth="150.0" mnemonicParsing="false" onAction="#viewGraph" prefHeight="130.0" prefWidth="150.0" text="Graph Theory">
          <font>
             <Font size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="74.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/graphtheory.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button contentDisplay="TOP" layoutX="14.0" layoutY="268.0" mnemonicParsing="false" prefHeight="117.0" prefWidth="149.0" text="Data Structures">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="48.0" fitWidth="122.0" onDragDetected="#viewDS" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/segmenttwee.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="14.0" prefHeight="118.0" prefWidth="356.0" style="-fx-background-color: #d6d6d6; -fx-background-radius: 10;" text="View sorting algorithms!" textOverrun="CLIP" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="192.0" layoutY="79.0" prefHeight="130.0" prefWidth="325.0" style="-fx-background-color: #d6d6d6; -fx-background-radius: 10;" text="View sorting algorithms!" textOverrun="CLIP" wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -54,15 +42,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="141.0" prefHeight="118.0" prefWidth="356.0" style="-fx-background-color: #d6d6d6; -fx-background-radius: 10;" text="View graph theory algorithms!" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="268.0" prefHeight="118.0" prefWidth="356.0" style="-fx-background-color: #d6d6d6; -fx-background-radius: 10;" text="View data structures!" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="192.0" layoutY="229.0" prefHeight="130.0" prefWidth="325.0" style="-fx-background-color: #d6d6d6; -fx-background-radius: 10;" text="View graph theory algorithms!" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

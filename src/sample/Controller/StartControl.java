@@ -32,7 +32,9 @@ public class StartControl implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/profile.fxml"));
             Stage stage = (Stage) logoImgView.getScene().getWindow();
             stage.setTitle("Profile");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch(IOException e){
@@ -45,7 +47,9 @@ public class StartControl implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/algoPage.fxml"));
             Stage stage = (Stage) logoImgView.getScene().getWindow();
             stage.setTitle("Algorithms");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch(IOException e){
@@ -58,7 +62,9 @@ public class StartControl implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/settings.fxml"));
             Stage stage = (Stage) logoImgView.getScene().getWindow();
             stage.setTitle("Settings");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch(IOException e){
@@ -71,7 +77,9 @@ public class StartControl implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/Login.fxml"));
             Stage stage = (Stage) logoImgView.getScene().getWindow();
             stage.setTitle("Login to ConspicioAlgo");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch(IOException e){

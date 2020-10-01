@@ -54,8 +54,8 @@
             </Label>
             <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
             <PasswordField fx:id="confirmPasswordField" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#createAccountAction" prefHeight="25.0" prefWidth="155.0" text="Create Account" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#returnLoginAction" prefHeight="25.0" prefWidth="114.0" text="Return to Login" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#createAccountAction" prefHeight="25.0" prefWidth="155.0" text="Create" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#returnLoginAction" prefHeight="25.0" prefWidth="114.0" text="Return" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

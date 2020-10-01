@@ -1,6 +1,5 @@
 package sample.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,7 +36,7 @@ public class LoginControl implements Initializable {
     public static ArrayList<String> passwords = new ArrayList<>();
     public static AES aes = new AES();
 
-    @Override //TODO: Encrypt with AES to make secure!!!
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         try {
             s = new Scanner(new File(System.getProperty("user.dir") + "/users.csv"));
@@ -85,7 +84,9 @@ public class LoginControl implements Initializable {
                     Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/StartPage.fxml"));
                     Stage stage = (Stage) usernameTF.getScene().getWindow();
                     stage.setTitle("Welcome!");
-                    stage.setScene(new Scene(root));
+                    Scene scene = new Scene(root);
+                    scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+                    stage.setScene(scene);
                     stage.setResizable(false);
                     stage.show();
                 } catch(IOException e){
@@ -100,7 +101,9 @@ public class LoginControl implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/CreateAccount.fxml"));
             Stage stage = (Stage) usernameTF.getScene().getWindow();
             stage.setTitle("Create an account");
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch(IOException e){
