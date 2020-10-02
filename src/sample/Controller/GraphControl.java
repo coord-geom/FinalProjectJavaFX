@@ -62,7 +62,7 @@ public class GraphControl {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPA.fxml"));
             Stage stage = (Stage) tabPane.getScene().getWindow();
-            stage.setTitle("Shortest Path Algorithms");
+            stage.setTitle("Single Source Shortest Path Algorithms");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
             stage.setScene(scene);

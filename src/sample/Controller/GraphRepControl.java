@@ -9,11 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.Model.Alerts;
-import sample.Model.Graphs.DUGraph;
-import sample.Model.Graphs.DWGraph;
-import sample.Model.Graphs.UUGraph;
-import sample.Model.Graphs.UWGraph;
+import sample.Model.General.Alerts;
+import sample.Model.Graphs.GraphStructures.DUGraph;
+import sample.Model.Graphs.GraphStructures.DWGraph;
+import sample.Model.Graphs.GraphStructures.UUGraph;
+import sample.Model.Graphs.GraphStructures.UWGraph;
 
 import java.io.IOException;
 import java.net.URL;

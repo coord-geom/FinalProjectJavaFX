@@ -10,9 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import sample.Model.AES;
-import sample.Model.Alerts;
-import sample.Model.CorruptFileException;
+import sample.Model.General.AES;
+import sample.Model.General.Alerts;
+import sample.Model.General.CorruptFileException;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -7,6 +7,6 @@ module FinalProjectJavaFX {
 
     opens sample;
     opens sample.Controller;
-    opens sample.Model;
+    opens sample.Model.General;
     opens sample.View;
 }

@@ -73,7 +73,7 @@ public class BubbleSorter extends Sorter {
                             new FillTransition(Duration.millis(speed), r2, Color.LIGHTSKYBLUE, Color.RED)
                     ).play());
                     try {
-                        Thread.sleep((long) speed);
+                        Thread.sleep((long) speed/2);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -87,7 +87,7 @@ public class BubbleSorter extends Sorter {
                                 new PathTransition(Duration.millis(speed), new Path(m2, l2), r2)
                         ).play());
                         try {
-                            Thread.sleep((long) speed);
+                            Thread.sleep((long) speed/2);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -106,7 +106,7 @@ public class BubbleSorter extends Sorter {
                             new FillTransition(Duration.millis(speed), r2, Color.RED, Color.LIGHTSKYBLUE)
                     ).play());
                     try {
-                        Thread.sleep((long) speed);
+                        Thread.sleep((long) speed/2);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -116,7 +116,7 @@ public class BubbleSorter extends Sorter {
                         Duration.millis(speed), copy.get(arrayCopy.length - 1 - finalI), Color.LIGHTSKYBLUE, Color.ORANGE
                 ).play());
                 try {
-                    Thread.sleep((long) speed);
+                    Thread.sleep((long) speed/2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -125,7 +125,7 @@ public class BubbleSorter extends Sorter {
                     Duration.millis(speed), copy.get(0), Color.LIGHTSKYBLUE, Color.ORANGE
             ).play());
             try {
-                Thread.sleep((long) speed);
+                Thread.sleep((long) speed/2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -77,7 +77,7 @@ public class InsertionSorter extends Sorter {
             Platform.runLater(() -> new FillTransition(
                     Duration.millis(speed), copy.get(0), Color.LIGHTSKYBLUE, Color.ORANGE
             ).play());
-            try{ Thread.sleep((long) speed);}
+            try{ Thread.sleep((long) speed/2);}
             catch(InterruptedException e){ e.printStackTrace(); }
             for(int i=1;i<arrCopy.length;++i){
                 Rectangle r = copy.get(i);
@@ -89,14 +89,14 @@ public class InsertionSorter extends Sorter {
                         ), r)
                 ).play());
                 Platform.runLater(() -> r.setY(r.getY()+200));
-                try{ Thread.sleep((long) speed);}
+                try{ Thread.sleep((long) speed/2);}
                 catch(InterruptedException e){ e.printStackTrace(); }
                 int key = arrCopy[i];
                 int k = i-1;
                 while(k >= 0 && arrCopy[k] > key){
                     Rectangle r1 = copy.get(k);
                     Platform.runLater(() -> new FillTransition(Duration.millis(speed), r1, Color.ORANGE, Color.GREEN).play());
-                    try{ Thread.sleep((long) speed);}
+                    try{ Thread.sleep((long) speed/2);}
                     catch(InterruptedException e){ e.printStackTrace(); }
                     Platform.runLater(() -> new ParallelTransition(
                             new PathTransition(Duration.millis(speed), new Path(
@@ -112,7 +112,7 @@ public class InsertionSorter extends Sorter {
                         r.setX(r.getX()-45);
                         r1.setX(r1.getX()+45);
                     });
-                    try{ Thread.sleep((long) speed);}
+                    try{ Thread.sleep((long) speed/2);}
                     catch(InterruptedException e){ e.printStackTrace(); }
                     Platform.runLater(() -> new FillTransition(Duration.millis(speed), r1, Color.GREEN, Color.ORANGE).play());
                     arrCopy[k+1] = arrCopy[k];
@@ -122,7 +122,7 @@ public class InsertionSorter extends Sorter {
                 if(k > 0){
                     Rectangle r1 = copy.get(k);
                     Platform.runLater(() -> new FillTransition(Duration.millis(speed), r1, Color.ORANGE, Color.GREEN).play());
-                    try{ Thread.sleep((long) speed);}
+                    try{ Thread.sleep((long) speed/2);}
                     catch(InterruptedException e){ e.printStackTrace(); }
                 }
                 Platform.runLater(() -> new ParallelTransition(
@@ -135,11 +135,11 @@ public class InsertionSorter extends Sorter {
                 if(k > 0){
                     Rectangle r1 = copy.get(k);
                     Platform.runLater(() -> new FillTransition(Duration.millis(speed), r1, Color.GREEN, Color.ORANGE).play());
-                    try{ Thread.sleep((long) speed);}
+                    try{ Thread.sleep((long) speed/2);}
                     catch(InterruptedException e){ e.printStackTrace(); }
                 }
                 Platform.runLater(() -> r.setY(r.getY() - 200));
-                try{ Thread.sleep((long) speed);}
+                try{ Thread.sleep((long) speed/2);}
                 catch(InterruptedException e){ e.printStackTrace(); }
                 arrCopy[k+1] = key;
                 copy.set(k+1,r);

@@ -135,7 +135,7 @@ public class MergeSorter extends Sorter {
                     rect.setX(finalXx +45*finalK);
                     rect.setY(rect.getY()+200);
                 });
-                try{ Thread.sleep((long) speed); }
+                try{ Thread.sleep((long) speed/2); }
                 catch(InterruptedException e){ e.printStackTrace(); }
                 a[k] = l[i];
                 lst[k++] = l_lst[i++];
@@ -156,7 +156,7 @@ public class MergeSorter extends Sorter {
                     rect.setX(finalXx1 +45*finalK);
                     rect.setY(rect.getY()+200);
                 });
-                try{ Thread.sleep((long) speed); }
+                try{ Thread.sleep((long) speed/2); }
                 catch(InterruptedException e){ e.printStackTrace(); }
                 a[k] = r[j];
                 lst[k++] = r_lst[j++];
@@ -178,7 +178,7 @@ public class MergeSorter extends Sorter {
                 rect.setX(finalXx2 +45*finalK);
                 rect.setY(rect.getY()+200);
             });
-            try{ Thread.sleep((long) speed); }
+            try{ Thread.sleep((long) speed/2); }
             catch(InterruptedException e){ e.printStackTrace(); }
             lst[k] = l_lst[i];
             a[k++] = l[i++];
@@ -199,7 +199,7 @@ public class MergeSorter extends Sorter {
                 rect.setX(finalXx3 +45*finalK);
                 rect.setY(rect.getY()+200);
             });
-            try{ Thread.sleep((long) speed); }
+            try{ Thread.sleep((long) speed/2); }
             catch(InterruptedException e){ e.printStackTrace(); }
             lst[k] = r_lst[j];
             a[k++] = r[j++];
@@ -215,7 +215,7 @@ public class MergeSorter extends Sorter {
             ).play());
             Platform.runLater(() -> rect.setY(rect.getY() - 200));
             try {
-                Thread.sleep((long) speed);
+                Thread.sleep((long) speed/2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

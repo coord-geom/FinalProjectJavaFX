@@ -15,7 +15,7 @@ public abstract class Sorter {
     protected final Pane pane;
     protected int[] array;
     protected int[] arrayCopy;
-    protected double speed = 1000;
+    protected double speed = 800;
     protected final int maxHeight = 200;
     protected Slider slider;
 

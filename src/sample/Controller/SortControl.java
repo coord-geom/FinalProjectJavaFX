@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.Model.*;
+import sample.Model.General.Alerts;
 import sample.Model.Sorting.BubbleSorter;
 import sample.Model.Sorting.CountingSorter;
 import sample.Model.Sorting.InsertionSorter;

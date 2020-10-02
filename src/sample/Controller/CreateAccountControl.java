@@ -7,8 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Model.AES;
-import sample.Model.Alerts;
+import sample.Model.General.AES;
+import sample.Model.General.Alerts;
 
 import java.io.FileWriter;
 import java.io.IOException;

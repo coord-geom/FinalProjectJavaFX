@@ -80,7 +80,7 @@ public class CountingSorter extends Sorter {
             }
             Platform.runLater(() -> pane.getChildren().addAll(rects));
             Platform.runLater(pll::play);
-            try{ Thread.sleep((long) speed); }
+            try{ Thread.sleep((long) speed/2); }
             catch(InterruptedException e){ e.printStackTrace(); }
             // code goes here
             List<ArrayList<Rectangle>> store = new ArrayList<>();
@@ -102,11 +102,11 @@ public class CountingSorter extends Sorter {
                     r.setX(145+45*arrCopy[finalI]);
                     r.setY(r.getY()+200);
                 });
-                try{ Thread.sleep((long) speed); }
+                try{ Thread.sleep((long) speed/2); }
                 catch(InterruptedException e){ e.printStackTrace(); }
                 store.get(arrCopy[i]-1).add(r);
             }
-            try{ Thread.sleep((long) speed); }
+            try{ Thread.sleep((long) speed/2); }
             catch(InterruptedException e){ e.printStackTrace(); }
             int counter = 0;
             for(ArrayList<Rectangle> lst: store){
@@ -125,7 +125,7 @@ public class CountingSorter extends Sorter {
                         r.setX(100+45*finalCounter);
                         r.setY(r.getY()-200);
                     });
-                    try{ Thread.sleep((long) speed); }
+                    try{ Thread.sleep((long) speed/2); }
                     catch(InterruptedException e){ e.printStackTrace(); }
                 }
             }
@@ -136,7 +136,7 @@ public class CountingSorter extends Sorter {
                 pll.getChildren().add(ft);
             }
             Platform.runLater(pll::play);
-            try{ Thread.sleep((long) speed); }
+            try{ Thread.sleep((long) speed/2); }
             catch(InterruptedException e){ e.printStackTrace(); }
             Platform.runLater(() -> pane.getChildren().removeAll(rects));
             // code ends here

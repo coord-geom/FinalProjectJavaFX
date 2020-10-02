@@ -24,9 +24,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import sample.Model.Alerts;
-
-import java.io.IOException;
+import sample.Model.General.Alerts;
 
 
 public class Main extends Application {
