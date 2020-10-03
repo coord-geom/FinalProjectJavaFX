@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="13.0" prefHeight="120.0" prefWidth="368.0" text="Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the source node, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. It can also solve the single-source shortest path problem for unweighted graphs in O(V+E) time." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="139.0" prefHeight="85.0" prefWidth="368.0" text="Depth-first search (DFS) is another algorithm for traversing or searching tree or graph data structures. The algorithm starts at the source node and explores as far as possible along each branch before backtracking." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="229.0" prefHeight="61.0" prefWidth="368.0" text="These search algorithms help us to make observations about graphs, such as whether they are bipartite or sorting the vertices topologically." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutX="72.0" layoutY="24.0" prefHeight="300.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Dijkstra">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="24.0" prefHeight="99.0" prefWidth="363.0" text="Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later." textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="135.0" prefHeight="99.0" prefWidth="363.0" text="This algorithm is considered efficient, as it has a time complexity of O(E log V). However, it runs too slowly on negative weights, and will run infinitely if negative cycles exist in the graph." textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Bellman Ford">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="24.0" prefHeight="98.0" prefWidth="363.0" text="Like Dijkstra's algorithm, Bellman–Ford proceeds by relaxation, in which approximations to the correct distance are replaced by better ones until they eventually reach the solution. It simply relaxes all the edges, and does this V - 1 times, where V is the number of vertices." textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="135.0" prefHeight="98.0" prefWidth="363.0" text="Although slower than Dijkstra's algorithm, it is able to work with negative weights and can detect negative cycles. This makes the algorithm more versatile than Dijkstra's algorithm and it can deal with a wider range of data." textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

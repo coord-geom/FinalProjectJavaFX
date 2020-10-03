@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="510.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutY="-7.0" prefHeight="510.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="BFS">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="35.0" prefHeight="200.0" prefWidth="371.0" text="#include &lt;bits/stdc++.h&gt;&#10;using namespace std;&#10;&#10;int main(){&#10;    int n, src; // graph size, source node&#10;    cin &gt;&gt; n &gt;&gt; src;&#10;    vector&lt;int&gt; AL[n]; // adjacency list&#10;    // scanning of connected nodes&#10;    queue&lt;int&gt; q;&#10;    int visited[n];&#10;    for(int i=0;i&lt;n;++i)&#10;        visited[i] = 0;&#10;    visited[src] = 1;&#10;    q.push(src);&#10;    while(!q.empty()){&#10;        int u = q.front();&#10;        q.pop();&#10;        // action when node is visited&#10;        for(int v: AL[u]){&#10;            if(visited[v] == 0){&#10;                visited[v] = 1;&#10;                q.push(v);&#10;            }&#10;        }&#10;    }&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" layoutX="14.0" layoutY="273.0" prefHeight="200.0" prefWidth="371.0" text="public class BFS{&#10;    public static void main(String[] args){&#10;        int n, src; // graph size, source node&#10;        // scan n and src&#10;        ArrayList&lt;ArrayList&lt;Integer&gt; AL = new ArrayList&lt;&gt;(n); // adjacency list&#10;        // scanning of connected nodes&#10;        Queue&lt;Integer&gt; q = new LinkedList&lt;&gt;();&#10;        int[] visited = new int[n];&#10;        visited[src] = 1;&#10;        q.add(src);&#10;        while(!q.isEmpty()){&#10;            int u = q.poll();&#10;            // action when node is visited&#10;            for(int v: AL.get(u)){&#10;                if(visited[v] == 0){&#10;                    visited[v] = 1;&#10;                    q.add(v);&#10;                }&#10;            }&#10;        }&#10;    }&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="DFS">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="35.0" prefHeight="200.0" prefWidth="371.0" text="#include &lt;bits/stdc++.h&gt;&#10;using namespace std;&#10;&#10;vector&lt;int&gt; AL[1000]; // arbitrary size for global var&#10;int visited[1000];&#10;&#10;void dfs(int u){&#10;    if(visited[u] == 1) return;&#10;    visited[u] = 1;&#10;    // perform action&#10;    for(int v: AL[u])&#10;        dfs(v);&#10;}&#10;&#10;int main(){&#10;    int n, src; // graph size, source node&#10;    cin &gt;&gt; n &gt;&gt; src;&#10;    // scanning of connected nodes&#10;    dfs(src);&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" layoutX="14.0" layoutY="273.0" prefHeight="200.0" prefWidth="371.0" text="public class BFS{&#10;    &#10;    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; AL;&#10;    public int[] visited;&#10;&#10;    public static void main(String[] args){&#10;        int n, src; // graph size, source node&#10;        // scan n and src&#10;        AL = new ArrayList&lt;&gt;(n); // adjacency list&#10;        // scanning of connected nodes&#10;        dfs(src);&#10;    }&#10;&#10;    public void dfs(int u){&#10;        if(visited[u] == 1) return;&#10;        visited[u] = 1;&#10;        // perform action&#10;        for(int v: AL.get(u))&#10;            dfs(v);&#10;    }&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="14.0" layoutY="43.0" text="C++" />
+      <Label layoutX="14.0" layoutY="279.0" text="Java" />
+   </children>
+</AnchorPane>

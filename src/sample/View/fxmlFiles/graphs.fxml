@@ -158,12 +158,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label text="tbc" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label text="Suppose you have just woken up and you're running late for school. Obvoiusly, you would want to find the fastest way to get there from home. As there are many paths to the same destination, one would need to identify the shortest one. This is the essence of shortest path algorithms." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="tbc" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label text="In this simulation, we explore two single-source shortest path algorithms - Bellman Ford's and Dijkstra's algorithms. For ease of implementation, the graphs used here are directed graphs with non-negative weights." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

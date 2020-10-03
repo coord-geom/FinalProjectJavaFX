@@ -8,9 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.Model.General.Alerts;
 import sample.Model.Graphs.Animation.BellmanFord;
@@ -45,6 +47,7 @@ public class GraphSPAControl implements Initializable {
         dijkstra = new Dijkstra(graph,slider,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
         bellmanFord = new BellmanFord(graph,slider,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
         anchorPane.setOnMouseClicked(this::createVertex);
+        uploadEdgesBtn.setTooltip(new Tooltip("Many edges to add? Key them into a file and load them here!"));
     }
 
     public void createVertex(MouseEvent e){ graph.addVertex(e.getX(),e.getY()); }
@@ -72,11 +75,12 @@ public class GraphSPAControl implements Initializable {
         try {
             Scanner s = new Scanner(file);
             while(s.hasNext()){
-                String[] data = s.nextLine().split(",");
-                if(data.length != 3) {
+                String str = s.nextLine();
+                if(!str.matches("\\d,\\d,(0|[1-9]\\d*)")) {
                     Alerts.warningAlert("File is in wrong format!");
                     return;
                 }
+                String[] data = str.split(",");
                 int x = Integer.parseInt(data[0]), y = Integer.parseInt(data[1]), w = Integer.parseInt(data[2]);
                 if(!graph.inGraph(x) || !graph.inGraph(y)){
                     Alerts.warningAlert("Vertex not found in graph!");
@@ -126,6 +130,32 @@ public class GraphSPAControl implements Initializable {
         catch(NumberFormatException e){ Alerts.warningAlert("Input is in the wrong format!","Please enter a valid source vertex!"); }
     }
 
-    public void loadInfo(){}
-    public void loadCode(){} // TODO: 3/10/2020 code info and code for spa out
+    public void loadCode(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPACode.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Shortest Path Algorithm Code");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void loadInfo(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPAInfo.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Shortest Path Algorithm Info");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
