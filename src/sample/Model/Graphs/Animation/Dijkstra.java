@@ -3,6 +3,7 @@ package sample.Model.Graphs.Animation;
 import javafx.animation.FillTransition;
 import javafx.animation.StrokeTransition;
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -15,31 +16,35 @@ import sample.Model.General.Alerts;
 import sample.Model.Graphs.GraphStructures.Graph;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
-public class BFS extends GraphTraversal{
+public class Dijkstra extends GraphSPA{
 
-    public BFS(Graph graph, Slider slider,
-               Button edgeBtn, Button clearBtn, Button dfsBtn, Button bfsBtn, Button uploadBtn) {
-        super(graph,slider,edgeBtn,clearBtn,dfsBtn,bfsBtn,uploadBtn);
+    public Dijkstra(Graph graph, Slider slider, Button edgeBtn, Button clearBtn, Button dijkBtn, Button bfBtn, Button uploadBtn) {
+        super(graph, slider, edgeBtn, clearBtn, dijkBtn, bfBtn, uploadBtn);
     }
 
-    public void animate(int src){
+    public void animate(int src) {
         if(src >= graph.getNumVertices() || src < 0){
             Alerts.warningAlert("Source node chosen is not on graph!","Please choose another graph!");
             return;
         }
         new Thread(() -> {
             ArrayList<Circle> vertices = graph.getVertices();
-            ArrayList<ArrayList<Integer>> AL = graph.getAL();
+            ArrayList<ArrayList<int[]>> AL = graph.getALW();
             ArrayList<Line> edges = graph.getEdges();
             ArrayList<int[]> EL = graph.getEL();
             Pane pane = graph.getPane();
             for(Line l: edges)
                 Platform.runLater(()->l.setStroke(Color.BLACK));
-            for(Label l: labels)
-                Platform.runLater(()->pane.getChildren().remove(l));
+            ArrayList<Label> lbl = new ArrayList<>();
+            for(Node node: pane.getChildren()){
+                if(node instanceof Label)
+                    if(node.getStyle().equals("-fx-font-weight: bold; -fx-text-fill: red;"))
+                        lbl.add((Label) node);
+            }
+            Platform.runLater(()->pane.getChildren().removeAll(lbl));
             Platform.runLater(()->{
                 pane.setDisable(true);
                 disableButtons(true);
@@ -54,13 +59,16 @@ public class BFS extends GraphTraversal{
             }
             labels.get(src).setText("0");
             Platform.runLater(()->pane.getChildren().addAll(labels));
-            int[] visited = new int[graph.getNumVertices()];
-            for(int i=0;i<graph.getNumVertices();++i) visited[i] = -1;
-            Queue<Integer> q = new LinkedList<>();
-            q.add(src);
-            visited[src] = 0;
-            while(!q.isEmpty()){
-                int u = q.poll();
+            ArrayList<int[]> pq = new ArrayList<>();
+            int[] dist = new int[graph.getNumVertices()];
+            for(int i=0;i<graph.getNumVertices();++i){
+                if(i == src) continue;
+                dist[i] = -1;
+            }
+            pq.add(new int[]{0,src});
+            while(!pq.isEmpty()){
+                int[] arr = pq.get(0); pq.remove(0);
+                int d = arr[0], u = arr[1];
                 Circle c = vertices.get(u);
                 Platform.runLater(() -> {
                     new FillTransition(Duration.millis(speed),c,Color.WHITE,Color.ORANGE).play();
@@ -68,11 +76,24 @@ public class BFS extends GraphTraversal{
                 });
                 try { Thread.sleep((long) speed); }
                 catch (InterruptedException e) { e.printStackTrace(); }
-                for(int v: AL.get(u)){
+
+                if(dist[u] != d) {
+                    Platform.runLater(() -> {
+                        new FillTransition(Duration.millis(speed),c,Color.ORANGE,Color.WHITE).play();
+                        c.setFill(Color.WHITE);
+                    });
+                    try { Thread.sleep((long) speed); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
+                    continue;
+                }
+
+                for(int[] ar: AL.get(u)){
+                    int v = ar[0], dis = ar[1];
+
                     Line line = null;
                     for(int i=0;i<EL.size();++i){
-                        int[] arr = EL.get(i);
-                        if(arr[0] == u && arr[1] == v){
+                        int[] a = EL.get(i);
+                        if(a[0] == u && a[1] == v){
                             line = edges.get(i);
                             break;
                         }
@@ -84,39 +105,34 @@ public class BFS extends GraphTraversal{
                     });
                     try { Thread.sleep((long) speed); }
                     catch (InterruptedException e) { e.printStackTrace(); }
-                    if(visited[v] != -1){
-                        Platform.runLater(()-> {
-                            new StrokeTransition(Duration.millis(speed),finalLine,Color.ORANGE,Color.GREY).play();
-                            finalLine.setStroke(Color.GREY);
-                        });
-                        try { Thread.sleep((long) speed); }
-                        catch (InterruptedException e) { e.printStackTrace(); }
+
+                    if(dist[v] == -1 || dist[v] > d + dis){
+                        dist[v] = d + dis;
+                        Platform.runLater(()->labels.get(v).setText(""+dist[v]));
+                        pq.add(new int[]{dist[v],v});
                     }
-                    else{
-                        Platform.runLater(()-> {
-                            new StrokeTransition(Duration.millis(speed),finalLine,Color.ORANGE,Color.FIREBRICK).play();
-                            finalLine.setStroke(Color.FIREBRICK);
-                        });
-                        try { Thread.sleep((long) speed); }
-                        catch (InterruptedException e) { e.printStackTrace(); }
-                        q.add(v);
-                        visited[v] = visited[u] + 1;
-                        Platform.runLater(()->labels.get(v).setText(""+visited[v]));
-                    }
+
+                    Platform.runLater(()-> {
+                        new StrokeTransition(Duration.millis(speed),finalLine,Color.ORANGE,Color.BLACK).play();
+                        finalLine.setStroke(Color.GREY);
+                    });
+                    try { Thread.sleep((long) speed); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
                 }
+
                 Platform.runLater(() -> {
                     new FillTransition(Duration.millis(speed),c,Color.ORANGE,Color.WHITE).play();
                     c.setFill(Color.WHITE);
                 });
                 try { Thread.sleep((long) speed); }
                 catch (InterruptedException e) { e.printStackTrace(); }
+                pq.sort(new PQComparator());
             }
+
             Platform.runLater(()->{
                 pane.setDisable(false);
                 disableButtons(false);
             });
         }).start();
     }
-
-
 }

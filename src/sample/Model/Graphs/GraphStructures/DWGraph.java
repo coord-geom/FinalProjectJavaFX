@@ -58,10 +58,11 @@ public class DWGraph extends WeightedGraph{
         Label label = new Label(""+weight);
         label.setLayoutX((x1+x2)/2);
         label.setLayoutY((y1+y2)/2);
+        label.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
         pane.getChildren().addAll(edge,arr1,arr2,label);
         EL.add(new int[]{x,y,weight});
         AM[x][y] = 1;
-        AL.get(x).add(y);
+        ALW.get(x).add(new int[]{y,weight});
         edges.add(edge);
         edge.toBack();
         arr1.toBack();

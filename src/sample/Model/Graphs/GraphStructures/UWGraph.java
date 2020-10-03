@@ -32,11 +32,12 @@ public class UWGraph extends WeightedGraph{
         Label label = new Label(""+weight);
         label.setLayoutX((x1+x2)/2);
         label.setLayoutY((y1+y2)/2);
+        label.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
         pane.getChildren().addAll(edge,label);
         EL.add(new int[]{x,y,weight});
         AM[x][y] = AM[y][x] = 1;
-        AL.get(x).add(y);
-        AL.get(y).add(x);
+        ALW.get(x).add(new int[]{y,weight});
+        ALW.get(y).add(new int[]{x,weight});
         edge.toBack();
         edges.add(edge);
     }

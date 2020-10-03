@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="900.0" stylesheets="@../materials.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GraphSPAControl">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../materials.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GraphSPAControl">
    <children>
       <TabPane layoutX="308.0" layoutY="61.0" prefHeight="600.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Dijkstra">
+          <Tab text="Dijkstra / Bellman Ford">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="492.0" prefWidth="820.0" style="-fx-border-color: #000000;" />
+                        <AnchorPane fx:id="anchorPane" layoutX="14.0" layoutY="14.0" prefHeight="490.0" prefWidth="820.0" style="-fx-border-color: #000000;" />
+                        <Button fx:id="createEdgeBtn" layoutX="61.0" layoutY="514.0" mnemonicParsing="false" onAction="#createEdge" text="Create Edge" />
+                        <TextField fx:id="TF1" layoutX="166.0" layoutY="516.0" prefWidth="60.0" promptText="Node 1" />
+                        <TextField fx:id="TF2" layoutX="234.0" layoutY="516.0" prefWidth="60.0" promptText="Node 2" />
+                        <Button fx:id="clearGraphBtn" layoutX="367.0" layoutY="514.0" mnemonicParsing="false" onAction="#clearGraph" text="Clear Graph" />
+                        <Slider fx:id="slider" blockIncrement="0.05" layoutX="742.0" layoutY="520.0" max="1.0" prefHeight="37.0" prefWidth="138.0" value="0.5" />
+                        <Label layoutX="738.0" layoutY="510.0" text="slow" />
+                        <Label layoutX="861.0" layoutY="509.0" text="fast" />
+                        <Button fx:id="dijkstraBtn" layoutX="474.0" layoutY="514.0" mnemonicParsing="false" onAction="#dijkstra" text="Dijkstra" />
+                        <Button fx:id="bellmanFordBtn" layoutX="555.0" layoutY="514.0" mnemonicParsing="false" onAction="#bellmanFord" text="Bellman Ford" />
+                        <TextField fx:id="srcTF" layoutX="670.0" layoutY="516.0" prefWidth="60.0" promptText="source" />
+                        <TextField fx:id="weightTF" layoutX="301.0" layoutY="516.0" prefWidth="60.0" promptText="Weight" />
+                        <Button fx:id="uploadEdgesBtn" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="514.0" mnemonicParsing="false" onAction="#uploadEdges" prefHeight="24.0" prefWidth="15.0">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/upload.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Bellman Ford">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Floyd Warshall">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
         </tabs>
       </TabPane>
       <Button layoutX="843.0" layoutY="100.0" mnemonicParsing="false" onAction="#loadInfo" prefHeight="32.0" prefWidth="22.0" style="-fx-background-radius: 1000;">

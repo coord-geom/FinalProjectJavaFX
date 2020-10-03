@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public abstract class Graph {
     protected int[][] AM;
     protected ArrayList<ArrayList<Integer>> AL;
+    protected ArrayList<ArrayList<int[]>> ALW;
     protected ArrayList<int[]> EL;
     protected int numVertices = 0;
     protected ArrayList<Circle> vertices;
@@ -25,6 +26,7 @@ public abstract class Graph {
         AM = new int[10][10];
         AL = new ArrayList<>();
         EL = new ArrayList<>();
+        ALW = new ArrayList<>();
         vertices = new ArrayList<>();
         edges = new ArrayList<>();
         this.pane = pane;
@@ -45,8 +47,11 @@ public abstract class Graph {
         label.setLayoutY(posY-10);
         pane.getChildren().addAll(vertex,label);
         AL.add(new ArrayList<>());
+        ALW.add(new ArrayList<>());
         vertices.add(vertex);
     }
+
+    public boolean inGraph(int x){ return x >= 0 && x < numVertices; }
 
     public void clearGraph(){
         AM = new int[10][10];
@@ -58,6 +63,7 @@ public abstract class Graph {
         edges.clear();
     }
 
+    public ArrayList<ArrayList<int[]>> getALW(){ return ALW; }
     public int getNumVertices(){ return numVertices; }
     public ArrayList<Circle> getVertices(){ return vertices; }
     public int[][] getAM(){ return AM; }

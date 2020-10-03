@@ -4,6 +4,7 @@ import javafx.animation.FillTransition;
 import javafx.animation.StrokeTransition;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -28,8 +29,8 @@ public class DFS extends GraphTraversal{
     private int[] visited;
 
     public DFS(Graph graph, Slider slider,
-               Button edgeBtn, Button clearBtn, Button bfsBtn, Button dfsBtn) {
-        super(graph,slider,edgeBtn,clearBtn,bfsBtn,dfsBtn);
+               Button edgeBtn, Button clearBtn, Button bfsBtn, Button dfsBtn, Button uploadBtn) {
+        super(graph,slider,edgeBtn,clearBtn,bfsBtn,dfsBtn,uploadBtn);
     }
 
     public void animate(int src){
@@ -47,6 +48,9 @@ public class DFS extends GraphTraversal{
             for(Line l: edges){
                 Platform.runLater(()->l.setStroke(Color.BLACK));
             }
+            for(Label l: labels)
+                Platform.runLater(()->pane.getChildren().remove(l));
+            labels.clear();
             Platform.runLater(()->{
                 pane.setDisable(true);
                 disableButtons(true);
