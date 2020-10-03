@@ -4,8 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,12 +21,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="11.0" layoutY="12.0" prefHeight="167.0" prefWidth="875.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Vertex" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                          </columns>
-                        </TableView>
+                        <TextArea fx:id="adjacencyMatrix" editable="false" layoutX="12.0" layoutY="13.0" prefHeight="158.0" prefWidth="875.0" promptText="Adjacency list goes here" text="&#10;">
+                           <font>
+                              <Font name="Courier New" size="24.0" />
+                           </font>
+                        </TextArea>
                      </children>
                   </AnchorPane>
             </content>
@@ -36,12 +34,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="11.0" layoutY="12.0" prefHeight="167.0" prefWidth="875.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="Vertex" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                           </columns>
-                        </TableView>
+                        <TextArea fx:id="adjacencyList" editable="false" layoutX="12.0" layoutY="13.0" prefHeight="158.0" prefWidth="875.0" promptText="Adjacency list goes here" text="&#10;">
+                           <font>
+                              <Font name="Courier New" size="24.0" />
+                           </font>
+                        </TextArea>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -49,15 +46,11 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="11.0" layoutY="12.0" prefHeight="167.0" prefWidth="875.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="Number" />
-                              <TableColumn prefWidth="216.0000228881836" text="Vertex 1" />
-                              <TableColumn prefWidth="211.33331298828125" text="Vertex 2" />
-                              <TableColumn prefWidth="194.66668701171875" text="Weight" />
-                              <TableColumn prefWidth="178.00006103515625" text="Directed?" />
-                           </columns>
-                        </TableView>
+                        <TextArea fx:id="edgeList" editable="false" layoutX="13.0" layoutY="13.0" prefHeight="158.0" prefWidth="875.0" text="&#10;&#10;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="13.0">
+                           <font>
+                              <Font name="Courier New" size="24.0" />
+                           </font>
+                        </TextArea>
                      </children></AnchorPane>
               </content>
             </Tab>

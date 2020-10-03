@@ -124,6 +124,7 @@ public class GraphTraversalControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphTravInfo.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Graph Traversal Info");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
@@ -138,6 +139,7 @@ public class GraphTraversalControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphTravCode.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Graph Traversal Code");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());

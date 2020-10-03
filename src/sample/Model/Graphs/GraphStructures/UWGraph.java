@@ -35,7 +35,7 @@ public class UWGraph extends WeightedGraph{
         label.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
         pane.getChildren().addAll(edge,label);
         EL.add(new int[]{x,y,weight});
-        AM[x][y] = AM[y][x] = 1;
+        AM[x][y] = AM[y][x] = weight;
         ALW.get(x).add(new int[]{y,weight});
         ALW.get(y).add(new int[]{x,weight});
         edge.toBack();

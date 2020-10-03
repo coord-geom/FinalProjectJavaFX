@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="510.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -11,15 +14,43 @@
         <tabs>
           <Tab text="Dijkstra">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="31.0" prefHeight="200.0" prefWidth="371.0" text="#include &lt;bits/stdc++.h&gt;&#10;using namespace std;&#10;typedef pair&lt;int,int&gt; ii;&#10;&#10;int main(){&#10;    int n, src; // graph size, source node&#10;    cin &gt;&gt; n &gt;&gt; src;&#10;    vector&lt;ii&gt; AL[n];&#10;    // scanning of connected nodes&#10;    priority_queue&lt;ii&gt; pq;&#10;    int dist[n];&#10;    for(int i=0;i&lt;n;++i)&#10;        dist[i] = -1;&#10;    pq.push(ii(0,src));&#10;    dist[src] = 0;&#10;    while(!pq.empty()){&#10;        int u, d;&#10;        tie(u,d) = pq.top();&#10;        d = -d;&#10;        pq.pop();&#10;        if(d != dist[u]) continue;&#10;        for(ii p: AL[u]){&#10;            if(dist[p.first] == -1 || dist[p.first] &gt; d + p.second){&#10;                dist[p.first] = d + p.second;&#10;                pq.push(ii(-dist[p.first],p.first));&#10;            }&#10;        }&#10;    }&#10;    for(int i=0;i&lt;n;++i)&#10;        cout &lt;&lt; dist[i] &lt;&lt; &quot;\n&quot;;&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" layoutX="14.0" layoutY="267.0" prefHeight="200.0" prefWidth="371.0" text="public class Dijkstra{&#10;    public static void main(String[] args){&#10;        int n, src; // graph size, source node&#10;        // scan n and src&#10;        ArrayList&lt;ArrayList&lt;int[]&gt;&gt; AL = new ArrayList&lt;&gt;(n); // adjacency list&#10;        // scanning of connected nodes&#10;        ArrayList&lt;int[]&gt; pq = new ArrayList&lt;&gt;();&#10;        int[] dist = new int[n];&#10;        for(int i=0;i&lt;n;++i)&#10;            dist[i] = -1;&#10;        dist[src] = 0;&#10;        pq.add(new int[]{0,src});&#10;        while(!pq.isEmpty()){&#10;            int[] arr = pq.poll();&#10;            int u = arr[0], d = arr[1];&#10;            if(dist[u] != d) continue;&#10;            for(int[] ar: AL.get(u)){&#10;                int v = ar[0], dis = ar[1];&#10;                if(dist[v] == -1 || dist[v] &gt; d + dis){&#10;                    dist[v] = d + dis;&#10;                    pq.add(new int[]{dist[v],v});&#10;                }&#10;            }&#10;            pq.sort(new PQComparator());&#10;        }&#10;        for(int i=0;i&lt;n;++i)&#10;            System.out.println(dist[i]);&#10;    }&#10;}&#10;&#10;&#10;class PQComparator implements Comparator&lt;int[]&gt;{&#10;    @Override&#10;    public int compare(int[] o1, int[] o2){&#10;        if(o1[0] == o2[0]) return o1[1] - o2[1];&#10;        return o1[0] - o2[0];&#10;    }&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
           <Tab text="Bellman-Ford">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="31.0" prefHeight="200.0" prefWidth="371.0" text="#include &lt;bits/stdc++.h&gt;&#10;using namespace std;&#10;typedef tuple&lt;int,int,int&gt; iii;&#10;#define INF 1023456789&#10;&#10;int main(){&#10;    int n, src; // graph size, source node&#10;    cin &gt;&gt; n &gt;&gt; src;&#10;    vector&lt;iii&gt; EL;&#10;    // scanning of connected nodes&#10;    int dist[n];&#10;    for(int i=0;i&lt;n;++i)&#10;        dist[i] = INF;&#10;    dist[src] = 0;&#10;    for(int i=0;i&lt;n-1;++i){&#10;        for(int j=0;j&lt;EL.size();++j){ &#10;            int u,v,w;&#10;            tie(u,v,w) = EL[j];&#10;            dist[v] = min(dist[v], dist[u]+w);&#10;        }&#10;    }&#10;    for(int i=0;i&lt;n;++i)&#10;        cout &lt;&lt; dist[i] &lt;&lt; &quot;\n&quot;;&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" layoutX="14.0" layoutY="267.0" prefHeight="200.0" prefWidth="371.0" text="public class BFS{&#10;    &#10;    public static void main(String[] args){&#10;        int n, src; // graph size, source node&#10;        // scan n and src&#10;        ArrayList&lt;int[]&gt; EL = new ArrayList&lt;&gt;(n); // adjacency list&#10;        // scanning of connected nodes&#10;        int[] dist = new int[n];&#10;        int INF = 1023456789;&#10;        for(int i=0;i&lt;n;++i) dist[i] = INF;&#10;        dist[src] = 0;&#10;        for(int i=0;i&lt;n-1;++i){&#10;            for(int[] arr: EL){&#10;                int u = arr[0], v = arr[1], w = arr[2];&#10;                dist[v] = Math.min(dist[v],dist[u]+w);&#10;            }&#10;        }&#10;        for(int i=0;i&lt;n;++i)&#10;            System.out.println(dist[i]);&#10;    }&#10;}">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
+      <Label layoutX="13.0" layoutY="39.0" text="C++" />
+      <Label layoutX="13.0" layoutY="275.0" text="Java" />
    </children>
 </AnchorPane>

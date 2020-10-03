@@ -134,6 +134,7 @@ public class GraphSPAControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPACode.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Shortest Path Algorithm Code");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
@@ -148,6 +149,7 @@ public class GraphSPAControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPAInfo.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Shortest Path Algorithm Info");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());

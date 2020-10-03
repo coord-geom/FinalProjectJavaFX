@@ -209,6 +209,7 @@ public class SortControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/sortInfo.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Sorting Info");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
@@ -223,6 +224,7 @@ public class SortControl implements Initializable {
         try{
             Parent root = FXMLLoader.load(SortControl.class.getResource("/sample/View/fxmlFiles/sortCode.fxml"));
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Sorting Code Examples");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
