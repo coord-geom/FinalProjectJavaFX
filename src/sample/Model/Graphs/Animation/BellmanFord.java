@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -18,10 +19,11 @@ import sample.Model.Graphs.GraphStructures.Graph;
 
 import java.util.ArrayList;
 
-public class BellmanFord extends GraphSPA{
+public class BellmanFord extends GraphAnimation{
 
-    public BellmanFord(Graph graph, Slider slider, Button edgeBtn, Button clearBtn, Button dijkBtn, Button bfBtn, Button uploadBtn) {
-        super(graph, slider, edgeBtn, clearBtn, dijkBtn, bfBtn, uploadBtn);
+    public BellmanFord(Graph graph, Slider slider, TextField srcTF, Button edgeBtn,
+                       Button clearBtn, Button dijkBtn, Button bfBtn, Button uploadBtn) {
+        super(graph, slider, srcTF, edgeBtn, clearBtn, dijkBtn, bfBtn, uploadBtn);
     }
 
     public void animate(int src) {
@@ -31,7 +33,6 @@ public class BellmanFord extends GraphSPA{
         }
         new Thread(() -> {
             ArrayList<Circle> vertices = graph.getVertices();
-            ArrayList<ArrayList<Integer>> AL = graph.getAL();
             ArrayList<Line> edges = graph.getEdges();
             ArrayList<int[]> EL = graph.getEL();
             Pane pane = graph.getPane();
@@ -44,10 +45,7 @@ public class BellmanFord extends GraphSPA{
                         lbl.add((Label) node);
             }
             Platform.runLater(()->pane.getChildren().removeAll(lbl));
-            Platform.runLater(()->{
-                pane.setDisable(true);
-                disableButtons(true);
-            });
+            Platform.runLater(()->setDisables(true));
             labels.clear();
             for(int i=0;i<graph.getNumVertices();++i){
                 Label label = new Label("INF");
@@ -91,7 +89,7 @@ public class BellmanFord extends GraphSPA{
                         finalLine.setStroke(Color.ORANGE);
                     });
                     try { Thread.sleep((long) speed); }
-                    catch (InterruptedException e) { e.printStackTrace(); }
+                    catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
 
 
                     if(dist[v] - dist[u] > w){
@@ -110,15 +108,12 @@ public class BellmanFord extends GraphSPA{
                         finalLine.setStroke(Color.BLACK);
                     });
                     try { Thread.sleep((long) speed); }
-                    catch (InterruptedException e) { e.printStackTrace(); }
+                    catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
 
                 }
             }
 
-            Platform.runLater(()->{
-                pane.setDisable(false);
-                disableButtons(false);
-            });
+            Platform.runLater(()->setDisables(false));
         }).start();
     }
 }

@@ -13,6 +13,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import sample.Model.General.Alerts;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,8 @@ public class BubbleSorter extends Sorter {
         rectangles = createRectangles(array);
         pane.getChildren().addAll(rectangles);
     }
+
+    public ArrayList<Rectangle> getRectangles(){ return rectangles; }
 
     public ArrayList<Rectangle> createRectangles(int[] array){
         ArrayList<Rectangle> res = new ArrayList<>();
@@ -75,7 +78,7 @@ public class BubbleSorter extends Sorter {
                     try {
                         Thread.sleep((long) speed/2);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Alerts.errorAlert("interruptedException caught","i don't know how it got here");
                     }
                     if (arrayCopy[j] > arrayCopy[j + 1]) {
                         MoveTo m1 = new MoveTo(r1.getX() + r1.getWidth() / 2, r1.getY() + r1.getHeight() / 2),
@@ -89,7 +92,7 @@ public class BubbleSorter extends Sorter {
                         try {
                             Thread.sleep((long) speed/2);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            Alerts.errorAlert("interruptedException caught","i don't know how it got here");
                         }
                         Platform.runLater(() -> {
                             r1.setX(r1.getX() + 45);
@@ -108,7 +111,7 @@ public class BubbleSorter extends Sorter {
                     try {
                         Thread.sleep((long) speed/2);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Alerts.errorAlert("interruptedException caught","i don't know how it got here");
                     }
                 }
                 int finalI = i;
@@ -118,7 +121,7 @@ public class BubbleSorter extends Sorter {
                 try {
                     Thread.sleep((long) speed/2);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Alerts.errorAlert("interruptedException caught","i don't know how it got here");
                 }
             }
             Platform.runLater(() -> new FillTransition(
@@ -127,7 +130,7 @@ public class BubbleSorter extends Sorter {
             try {
                 Thread.sleep((long) speed/2);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Alerts.errorAlert("interruptedException caught","i don't know how it got here");
             }
             rectangles2 = copy;
             Platform.runLater(() -> {
@@ -136,11 +139,5 @@ public class BubbleSorter extends Sorter {
             });
         }).start();
     }
-    
-    public void start(){
-        Runnable task = this::sort;
-        Thread bgThread = new Thread(task);
-        bgThread.setDaemon(true);
-        bgThread.start();
-    }
+
 }

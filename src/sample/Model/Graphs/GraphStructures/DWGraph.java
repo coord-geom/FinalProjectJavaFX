@@ -21,7 +21,7 @@ public class DWGraph extends WeightedGraph{
             Alerts.warningAlert("Vertices chosen are the same!", "Choose another pair of vertices!");
             return;
         }
-        else if(AM[x][y] == 1){
+        else if(AM[x][y] != -100){
             Alerts.warningAlert("Edge already exists!", "Choose another pair of vertices!");
             return;
         }
