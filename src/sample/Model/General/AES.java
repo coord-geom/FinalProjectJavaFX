@@ -2,6 +2,7 @@ package sample.Model.General;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -11,12 +12,13 @@ import java.util.Base64;
 public class AES {
 
     private SecretKeySpec secretKey;
+    private byte[] key;
 
     private void setKey(String myKey)
     {
-        MessageDigest sha;
+        MessageDigest sha = null;
         try {
-            byte[] key = myKey.getBytes(StandardCharsets.UTF_8);
+            key = myKey.getBytes(StandardCharsets.UTF_8);
             sha = MessageDigest.getInstance("SHA-1");
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);

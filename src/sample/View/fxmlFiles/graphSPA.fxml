@@ -10,40 +10,66 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../materials.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GraphSPAControl">
-    <children>
-        <TabPane layoutX="308.0" layoutY="61.0" prefHeight="600.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <tabs>
-                <Tab text="Dijkstra / Bellman Ford">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <AnchorPane fx:id="anchorPane" layoutX="14.0" layoutY="14.0" prefHeight="490.0" prefWidth="870.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                <Button fx:id="createEdgeBtn" layoutX="61.0" layoutY="514.0" mnemonicParsing="false" onAction="#createEdge" text="Create Edge" AnchorPane.bottomAnchor="15.0" />
-                                <TextField fx:id="TF1" layoutX="166.0" layoutY="516.0" prefWidth="60.0" promptText="Node 1" AnchorPane.bottomAnchor="15.0" />
-                                <TextField fx:id="TF2" layoutX="234.0" layoutY="516.0" prefWidth="60.0" promptText="Node 2" AnchorPane.bottomAnchor="15.0" />
-                                <Button fx:id="clearGraphBtn" layoutX="367.0" layoutY="514.0" mnemonicParsing="false" onAction="#clearGraph" text="Clear Graph" AnchorPane.bottomAnchor="15.0" />
-                                <Slider fx:id="slider" blockIncrement="0.05" layoutX="742.0" layoutY="520.0" max="1.0" prefHeight="37.0" prefWidth="138.0" value="0.5" AnchorPane.bottomAnchor="10.0" />
-                                <Label layoutX="738.0" layoutY="509.33333333333337" text="slow" AnchorPane.bottomAnchor="36.0" />
-                                <Label layoutX="861.0" layoutY="509.33333333333337" text="fast" AnchorPane.bottomAnchor="36.0" />
-                                <Button fx:id="dijkstraBtn" layoutX="474.0" layoutY="514.0" mnemonicParsing="false" onAction="#dijkstra" text="Dijkstra" AnchorPane.bottomAnchor="15.0" />
-                                <Button fx:id="bellmanFordBtn" layoutX="555.0" layoutY="514.0" mnemonicParsing="false" onAction="#bellmanFord" text="Bellman Ford" AnchorPane.bottomAnchor="15.0" />
-                                <TextField fx:id="srcTF" layoutX="670.0" layoutY="516.0" prefWidth="60.0" promptText="source" AnchorPane.bottomAnchor="15.0" />
-                                <TextField fx:id="weightTF" layoutX="301.0" layoutY="516.0" prefWidth="60.0" promptText="Weight" AnchorPane.bottomAnchor="15.0" />
-                                <Button fx:id="uploadEdgesBtn" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="514.0" mnemonicParsing="false" onAction="#uploadEdges" prefHeight="24.0" prefWidth="15.0" AnchorPane.bottomAnchor="15.0">
-                                    <graphic>
-                                        <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../images/upload.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-            </tabs>
-        </TabPane>
-    </children>
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../materials.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GraphSPAControl">
+   <children>
+      <TabPane layoutX="308.0" layoutY="61.0" prefHeight="600.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Dijkstra / Bellman Ford">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPane" layoutX="14.0" layoutY="14.0" prefHeight="490.0" prefWidth="820.0" style="-fx-border-color: #000000;" />
+                        <Button fx:id="createEdgeBtn" layoutX="61.0" layoutY="514.0" mnemonicParsing="false" onAction="#createEdge" text="Create Edge" />
+                        <TextField fx:id="TF1" layoutX="166.0" layoutY="516.0" prefWidth="60.0" promptText="Node 1" />
+                        <TextField fx:id="TF2" layoutX="234.0" layoutY="516.0" prefWidth="60.0" promptText="Node 2" />
+                        <Button fx:id="clearGraphBtn" layoutX="367.0" layoutY="514.0" mnemonicParsing="false" onAction="#clearGraph" text="Clear Graph" />
+                        <Slider fx:id="slider" blockIncrement="0.05" layoutX="742.0" layoutY="520.0" max="1.0" prefHeight="37.0" prefWidth="138.0" value="0.5" />
+                        <Label layoutX="738.0" layoutY="510.0" text="slow" />
+                        <Label layoutX="861.0" layoutY="509.0" text="fast" />
+                        <Button fx:id="dijkstraBtn" layoutX="474.0" layoutY="514.0" mnemonicParsing="false" onAction="#dijkstra" text="Dijkstra" />
+                        <Button fx:id="bellmanFordBtn" layoutX="555.0" layoutY="514.0" mnemonicParsing="false" onAction="#bellmanFord" text="Bellman Ford" />
+                        <TextField fx:id="srcTF" layoutX="670.0" layoutY="516.0" prefWidth="60.0" promptText="source" />
+                        <TextField fx:id="weightTF" layoutX="301.0" layoutY="516.0" prefWidth="60.0" promptText="Weight" />
+                        <Button fx:id="uploadEdgesBtn" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="514.0" mnemonicParsing="false" onAction="#uploadEdges" prefHeight="24.0" prefWidth="15.0">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/upload.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="843.0" layoutY="100.0" mnemonicParsing="false" onAction="#loadInfo" prefHeight="32.0" prefWidth="22.0" style="-fx-background-radius: 1000;">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/info.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="843.0" layoutY="154.0" mnemonicParsing="false" onAction="#loadCode" prefHeight="22.0" prefWidth="23.0" style="-fx-background-radius: 100000;">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/code.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="BASELINE_CENTER" layoutX="844.0" layoutY="47.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
 </AnchorPane>

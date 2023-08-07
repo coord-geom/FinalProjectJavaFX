@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import sample.Model.General.Alerts;
 import sample.Model.Graphs.Animation.BellmanFord;
 import sample.Model.Graphs.Animation.Dijkstra;
+import sample.Model.Graphs.GraphStructures.DUGraph;
 import sample.Model.Graphs.GraphStructures.DWGraph;
 
 import java.io.File;
@@ -43,8 +44,8 @@ public class GraphSPAControl implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         graph = new DWGraph(anchorPane);
-        dijkstra = new Dijkstra(graph,slider,srcTF,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
-        bellmanFord = new BellmanFord(graph,slider,srcTF,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
+        dijkstra = new Dijkstra(graph,slider,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
+        bellmanFord = new BellmanFord(graph,slider,createEdgeBtn,clearGraphBtn,dijkstraBtn,bellmanFordBtn,uploadEdgesBtn);
         anchorPane.setOnMouseClicked(this::createVertex);
         uploadEdgesBtn.setTooltip(new Tooltip("Many edges to add? Key them into a file and load them here!"));
     }
@@ -80,8 +81,8 @@ public class GraphSPAControl implements Initializable {
                     return;
                 }
                 String[] data = str.split(",");
-                int x = Integer.parseInt(data[0]), x1 = Integer.parseInt(data[1]), w = Integer.parseInt(data[2]);
-                if(graph.inGraph(x) || graph.inGraph(x1)){
+                int x = Integer.parseInt(data[0]), y = Integer.parseInt(data[1]), w = Integer.parseInt(data[2]);
+                if(!graph.inGraph(x) || !graph.inGraph(y)){
                     Alerts.warningAlert("Vertex not found in graph!");
                     return;
                 }
@@ -105,8 +106,58 @@ public class GraphSPAControl implements Initializable {
 
     public void clearGraph(){ graph.clearGraph(); }
 
-    public void dijkstra(){ dijkstra.start(); }
+    public void returnBack(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphs.fxml"));
+            Stage stage = (Stage) anchorPane.getScene().getWindow();
+            stage.setTitle("Graph Theory");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
-    public void bellmanFord(){ bellmanFord.start(); }
+    public void dijkstra(){
+        try{ dijkstra.animate(Integer.parseInt(srcTF.getText())); }
+        catch(NumberFormatException e){ Alerts.warningAlert("Input is in the wrong format!","Please enter a valid source vertex!"); }
+    }
 
+    public void bellmanFord(){
+        try{ bellmanFord.animate(Integer.parseInt(srcTF.getText())); }
+        catch(NumberFormatException e){ Alerts.warningAlert("Input is in the wrong format!","Please enter a valid source vertex!"); }
+    }
+
+    public void loadCode(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPACode.fxml"));
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Shortest Path Algorithm Code");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void loadInfo(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/View/fxmlFiles/graphSPAInfo.fxml"));
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Shortest Path Algorithm Info");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/sample/View/materials.css").toExternalForm());
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

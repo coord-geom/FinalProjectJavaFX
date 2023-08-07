@@ -6,7 +6,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import sample.Model.General.Alerts;
+import javafx.scene.text.Font;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Graph {
@@ -22,10 +24,6 @@ public abstract class Graph {
 
     public Graph(Pane pane){
         AM = new int[10][10];
-        for(int i=0;i<10;++i){
-            for(int j=0;j<10;++j) AM[i][j] = -100;
-            AM[i][i] = 0;
-        }
         AL = new ArrayList<>();
         EL = new ArrayList<>();
         ALW = new ArrayList<>();
@@ -53,17 +51,12 @@ public abstract class Graph {
         vertices.add(vertex);
     }
 
-    public boolean inGraph(int x){ return x < 0 || x >= numVertices; }
+    public boolean inGraph(int x){ return x >= 0 && x < numVertices; }
 
     public void clearGraph(){
         AM = new int[10][10];
-        for(int i=0;i<10;++i){
-            for(int j=0;j<10;++j) AM[i][j] = -100;
-            AM[i][i] = 0;
-        }
         AL.clear();
         EL.clear();
-        ALW.clear();
         numVertices = 0;
         pane.getChildren().clear();
         vertices.clear();

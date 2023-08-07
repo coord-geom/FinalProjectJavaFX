@@ -20,7 +20,7 @@ public class UWGraph extends WeightedGraph{
             Alerts.warningAlert("Vertices chosen are the same!", "Choose another pair of vertices!");
             return;
         }
-        if(AM[x][y] != -100){
+        if(AM[x][y] == 1){
             Alerts.warningAlert("Edge already exists!", "Choose another pair of vertices!");
             return;
         }

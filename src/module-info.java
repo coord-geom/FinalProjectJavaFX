@@ -1,4 +1,4 @@
-module CS6132Assignment {
+module FinalProjectJavaFX {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.zxing;

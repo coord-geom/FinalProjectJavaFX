@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GraphControl">
+   <children>
+      <TabPane fx:id="tabPane" layoutX="-61.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Introduction">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="272.0" layoutY="148.0" prefHeight="370.6666666666667" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="28.999991734822594" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="458.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.66668701171875" minWidth="10.0" prefWidth="59.99999999999994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="60.33334223429362" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="108.99999109903973" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="96.33335367838541" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="106.33331298828125" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Graph Theory" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Graph theory is a fundamental category in computer science. It helps us to represent a network of connections in a pictorial representation, which helps in data organization, communication and more." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Fundamentally, a graph consists of vertices and edges, which can be weighted or directed, depending on its purpose. In this simulation, we explore several algorithms in graph theory to deepen our understanding in this area." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Graph Representations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="370.6666666666667" prefWidth="600.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="28.999991734822594" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="458.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.66668701171875" minWidth="10.0" prefWidth="59.99999999999994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="57.33333333333333" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="136.33333333333331" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="86.99999999999997" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Graph Representations" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Clearly, it is difficult to store an image of a graph and ask a computer to interpret it. However, what we can do is to store information about its components. This could come in the form of storing the edges, or keeping a list of which vertices are connected to one of them." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="In this simulation, we take a look at the adjacency matrix, adjacency list and edge list. Each representation has its own strengths and weakness, and choosing the right representation is essential in helping us make use of information to solve problems. " textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphRep" text="See Graph Representations" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Graph Traversal">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="370.6666666666667" prefWidth="600.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="28.999991734822594" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="458.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.66668701171875" minWidth="10.0" prefWidth="59.99999999999994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="57.33333333333333" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="119.33332316080728" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="104.66667683919269" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Graph Traversal" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Graph traversal refers to the process of visiting/updating each vertex in a graph. This is used in many graph theory problems to organize the graph for us to make useful observations. " textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="In this simulation, we will discuss both breadth-first search and depth-first search. Again, each has their pros and cons, and are used in different circumstances. When equipped with these algorithms, one would be equipped with the basics to search through graphs." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphTrav" text="See Graph Traversal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Shortest Path Algorithms">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="370.6666666666667" prefWidth="600.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="28.999991734822594" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.9999694824219" minWidth="10.0" prefWidth="458.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.66668701171875" minWidth="10.0" prefWidth="59.99999999999994" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.3333740234375" minWidth="1.000030517578125" prefWidth="55.00004069010413" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="57.33333333333333" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="225.333345413208" minHeight="10.0" prefHeight="136.33333333333331" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="86.99999999999997" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="264.6666946411133" minHeight="10.0" prefHeight="90.66667683919269" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Shortest Path Algorithms" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Suppose you have just woken up and you're running late for school. Obvoiusly, you would want to find the fastest way to get there from home. As there are many paths to the same destination, one would need to identify the shortest one. This is the essence of shortest path algorithms." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="In this simulation, we explore two single-source shortest path algorithms - Bellman Ford's and Dijkstra's algorithms. For ease of implementation, the graphs used here are directed graphs with non-negative weights." textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#loadGraphSPA" text="See Shortest Path Algorithms" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button alignment="BASELINE_CENTER" layoutX="550.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

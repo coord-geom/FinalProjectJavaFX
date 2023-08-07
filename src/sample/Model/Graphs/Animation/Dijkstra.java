@@ -7,7 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -17,12 +16,13 @@ import sample.Model.General.Alerts;
 import sample.Model.Graphs.GraphStructures.Graph;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
-public class Dijkstra extends GraphAnimation{
+public class Dijkstra extends GraphSPA{
 
-    public Dijkstra(Graph graph, Slider slider, TextField srcTF, Button edgeBtn,
-                    Button clearBtn, Button dijkBtn, Button bfBtn, Button uploadBtn) {
-        super(graph, slider, srcTF, edgeBtn, clearBtn, dijkBtn, bfBtn, uploadBtn);
+    public Dijkstra(Graph graph, Slider slider, Button edgeBtn, Button clearBtn, Button dijkBtn, Button bfBtn, Button uploadBtn) {
+        super(graph, slider, edgeBtn, clearBtn, dijkBtn, bfBtn, uploadBtn);
     }
 
     public void animate(int src) {
@@ -45,7 +45,10 @@ public class Dijkstra extends GraphAnimation{
                         lbl.add((Label) node);
             }
             Platform.runLater(()->pane.getChildren().removeAll(lbl));
-            Platform.runLater(()->setDisables(true));
+            Platform.runLater(()->{
+                pane.setDisable(true);
+                disableButtons(true);
+            });
             labels.clear();
             for(int i=0;i< graph.getNumVertices();++i){
                 Label label = new Label("INF");
@@ -72,7 +75,7 @@ public class Dijkstra extends GraphAnimation{
                     c.setFill(Color.ORANGE);
                 });
                 try { Thread.sleep((long) speed); }
-                catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
+                catch (InterruptedException e) { e.printStackTrace(); }
 
                 if(dist[u] != d) {
                     Platform.runLater(() -> {
@@ -80,7 +83,7 @@ public class Dijkstra extends GraphAnimation{
                         c.setFill(Color.WHITE);
                     });
                     try { Thread.sleep((long) speed); }
-                    catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
                     continue;
                 }
 
@@ -101,7 +104,7 @@ public class Dijkstra extends GraphAnimation{
                         finalLine.setStroke(Color.ORANGE);
                     });
                     try { Thread.sleep((long) speed); }
-                    catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
 
                     if(dist[v] == -1 || dist[v] > d + dis){
                         dist[v] = d + dis;
@@ -114,7 +117,7 @@ public class Dijkstra extends GraphAnimation{
                         finalLine.setStroke(Color.GREY);
                     });
                     try { Thread.sleep((long) speed); }
-                    catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
                 }
 
                 Platform.runLater(() -> {
@@ -122,12 +125,14 @@ public class Dijkstra extends GraphAnimation{
                     c.setFill(Color.WHITE);
                 });
                 try { Thread.sleep((long) speed); }
-                catch (InterruptedException e) { Alerts.errorAlert("interruptedException caught","i don't know how it got here"); }
+                catch (InterruptedException e) { e.printStackTrace(); }
                 pq.sort(new PQComparator());
             }
 
-            Platform.runLater(()->setDisables(false));
-
+            Platform.runLater(()->{
+                pane.setDisable(false);
+                disableButtons(false);
+            });
         }).start();
     }
 }

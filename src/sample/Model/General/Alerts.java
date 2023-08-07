@@ -67,15 +67,4 @@ public class Alerts {
     }
 
     public static void successAlert(String header){ successAlert(header, ""); }
-
-    public static void infoAlert(String header, String content){
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(header);
-        label = new Label(content);
-        label.setWrapText(true);
-        alert.getDialogPane().setContent(label);
-        alert.show();
-    }
-
-    public static void infoAlert(String header){ successAlert(header, ""); }
 }
